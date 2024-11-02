@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+body {
+  background-color: black;
+  overflow-x: hidden;
+}
+
+/* Main Section */
+.main-section {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Featured Background */
+.featured-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* Left-align content */
+}
+
+.overlay-content {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  max-width: 90%;
+}
+
+.featured-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.featured-description {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  max-width: 80%;
+}
+
+/* Button Styles */
+.action-buttons {
+  margin-top: 1rem;
+}
+
+.btn-see-movies:hover,
+.btn-see-series:hover {
+  background-color: #006bbd;
+}
+
+/* Carousel Section */
+.carousel-section {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 1rem;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.carousel-card {
+  flex-shrink: 0;
+  width: 120px;
+  transform: scale(1);
+  transition: transform 0.3s;
+}
+
+.carousel-card:hover {
+  transform: scale(1.1);
+}
+
+.carousel-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .featured-title {
+    font-size: 1.8rem;
+  }
+
+  .featured-description {
+    font-size: 1rem;
+  }
+
+  .btn-see-movies,
+  .btn-see-series {
+    font-size: 0.9rem;
+    padding: 0.4rem 1.2rem;
+  }
+
+  .carousel-card {
+    width: 90px;
+  }
+
+  .carousel-section {
+    bottom: 8%;
+  }
+}
+
+/* Remove the weird left space */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Top-Rated {
+  background-image: url(assets/bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.bg {
+  background-color: #1a1a1a;
+  color: white;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f03355;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  animation: l1 2s infinite cubic-bezier(0.3, 1, 0, 1);
+}
+/* Existing Keyframes l1 */
+@keyframes l1 {
+  33% {
+    border-radius: 0;
+    background: #514b82;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  66% {
+    border-radius: 0;
+    background: #ffa516;
+    clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%);
+  }
+}
+
+.upcoming {
+  position: relative;
+  background-image: url(assets/upcoming.jpg);
+  background-size: cover;
+  background-position: center;
+  /* Use pseudo-element to create a more flexible overlay */
+}
+
+.upcoming::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 1;
+}
+
+/* Content inside the .upcoming section */
+.upcoming .content {
+  position: relative; /* Ensures content appears above the overlay */
+  z-index: 2; /* Stays above the pseudo-element */
+  color: white;
+  text-align: center; /* Adjust text alignment as needed */
+  padding: 50px 20px;
+}
+
+.main-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 1;
+}
+
+.overlay-content,
+.carousel-section {
+  z-index: 2; /* Stays above the pseudo-element */
+  color: white;
+  text-align: center; /* Adjust text alignment as needed */
+  padding: 50px 20px;
+}
+
+/* Flicker-in-glow Animation with Pause */
+@keyframes text-flicker-in-glow {
+  0% {
+    opacity: 0;
+  }
+  6.66% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  6.67% {
+    opacity: 1;
+    text-shadow: none;
+  }
+  6.68% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  13.33% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  13.34% {
+    opacity: 1;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+  }
+  14% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  66.66% {
+    opacity: 1;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+      0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25),
+      0 0 100px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+      0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25),
+      0 0 100px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.text-flicker-gradient {
+  background: linear-gradient(90deg, #ff6ec4, #7873f5, #42a5f5, #ff6ec4);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Combine both animations */
+  animation: gradientMove 8s ease infinite,
+    text-flicker-in-glow 6s linear both infinite;
+}
+/* Login Page */
+.login {
+  position: relative;
+  background-image: url(assets/bg2.webp);
+  background-size: cover;
+  background-position: center;
+}
+/* signup page */
+.signup {
+  position: relative;
+  background-image: url(assets/bg-register.webp);
+  background-size: cover;
+  background-position: center;
+}
+h2 {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
