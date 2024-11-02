@@ -39,11 +39,12 @@ export default function NavBar() {
             {/* Right Button - Search Icon */}
             <Link
               to={`search/${inputValue}`}
-              className="block w-full p-3 pr-12 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="p-2 text-sm text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg z-[100] "
             >
               <BiSearchAlt2 size={24} />
               <span className="sr-only">Search</span>
             </Link>
+
             {/* Left Button - Menu Icon */}
             <button
               onClick={toggleMenu}
@@ -82,14 +83,12 @@ export default function NavBar() {
           <NavLink
             to={`search/${inputValue}`}
             className={`absolute right-3 top-1/2 transform -translate-y-1/2 
-          ${
-            inputValue.trim()
-              ? "text-gray-500"
-              : "text-gray-300 cursor-not-allowed"
-          }
-          dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 
-          focus:outline-none focus:ring-4 focus:ring-gray-200 
-          dark:focus:ring-gray-700 rounded-lg p-2 z-[100]`}
+      ${
+        inputValue.trim() ? "text-gray-500" : "text-gray-300 cursor-not-allowed"
+      }
+      dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 
+      focus:outline-none focus:ring-4 focus:ring-gray-200 
+      dark:focus:ring-gray-700 rounded-lg p-2 z-[100]`}
             onClick={(e) => {
               if (!inputValue.trim()) e.preventDefault(); // Prevent navigation if input is empty
             }}
@@ -97,6 +96,26 @@ export default function NavBar() {
             <BiSearchAlt2 size={24} />
             <span className="sr-only">Search for Movies</span>
           </NavLink>
+        </div>
+
+        {/* Search Button for Small Screens */}
+        <div className="md:hidden flex items-center">
+          <button
+            onClick={() => {
+              if (inputValue.trim()) {
+                // Perform search action, e.g., navigate to search route
+              }
+            }}
+            className={`p-2 text-sm rounded-lg ${
+              inputValue.trim()
+                ? "text-gray-500 hover:bg-gray-100"
+                : "text-gray-300 cursor-not-allowed"
+            } focus:outline-none z-[100]`}
+            disabled={!inputValue.trim()} // Disable button if input is empty
+          >
+            <BiSearchAlt2 size={24} />
+            <span className="sr-only">Search for Movies</span>
+          </button>
         </div>
 
         {/* Combined Nav Links with Fullscreen and Animation */}
