@@ -2,7 +2,7 @@
 import { useFormik } from "formik"; // Importing Formik for form handling
 import * as Yup from "yup"; // Importing Yup for form validation
 import axios from "axios"; // Importing Axios for making HTTP requests
-import { useNavigate } from "react-router-dom"; // Importing useNavigate hook for navigation
+import { Link, useNavigate } from "react-router-dom"; // Importing useNavigate hook for navigation
 import { useState } from "react";
 import Image from "../../assets/icon.jpg"; // Import your logo image
 
@@ -261,12 +261,12 @@ export default function Register() {
               {/* Link to Login Page */}
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{" "}
-                <a
+                <Link
                   href="/login"
                   className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                 >
                   Login here
-                </a>
+                </Link>
               </p>
             </form>
           </div>
