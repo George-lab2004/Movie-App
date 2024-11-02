@@ -38,8 +38,8 @@ export default function NavBar() {
           <div className="flex items-center justify-end w-full md:hidden relative mt-4">
             {/* Right Button - Search Icon */}
             <Link
-              to={"search"}
-              className="p-2 text-sm text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg z-[100] "
+              to={`search/${inputValue}`}
+              className="block w-full p-3 pr-12 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <BiSearchAlt2 size={24} />
               <span className="sr-only">Search</span>
