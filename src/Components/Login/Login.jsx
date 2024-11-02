@@ -1,5 +1,5 @@
 import * as Yup from "yup"; // Importing Yup for form validation
-import { useNavigate } from "react-router-dom"; // Importing useNavigate hook for navigation
+import { Link, useNavigate } from "react-router-dom"; // Importing useNavigate hook for navigation
 
 import Image from "../../assets/icon.jpg";
 import { useFormik } from "formik";
@@ -169,12 +169,12 @@ export default function Login() {
                 {/* Link to Login Page */}
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Dont have an account?{" "}
-                  <a
-                    href="/signup"
+                  <Link
+                    to="/signup"
                     className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                   >
                     signup here
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>
